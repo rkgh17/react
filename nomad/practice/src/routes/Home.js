@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import Movie from "./Movie";
+import Movie from "../components/Movie";
 
-function MovieApp() {
+// MovieApp
+function Home() {
   const [loading, setLoding] = useState(true);
   const [movies, setMovies] = useState([]);
   const getMovies = async () => {
@@ -40,6 +41,7 @@ function MovieApp() {
           {movies.map((movie) => (
             <Movie
               key={movie.id}
+              id={movie.id}
               a={movie.medium_cover_image}
               b={movie.title}
               c={movie.summary}
@@ -52,4 +54,4 @@ function MovieApp() {
   );
 }
 
-export default MovieApp;
+export default Home;
