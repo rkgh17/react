@@ -29,6 +29,24 @@ function App() {
     console.log("i run when 'keyword & counter' changes.");
   }, [keyword, counter]);
 
+  // cleanup
+  const [showing, setShowing] = useState(false);
+  const onClick = () => setShowing((prev) => !prev);
+
+  function Hello() {
+    function hiFn() {
+      console.log("created");
+
+      // 컴포넌트가 없어질때 아래가 수행된
+      return byFn;
+    }
+    function byFn() {
+      console.log("destroyed");
+    }
+    useEffect(hiFn, []);
+    return <h1>Hello</h1>;
+  }
+
   return (
     <div>
       <input
@@ -40,6 +58,10 @@ function App() {
       <h1 className={styles.title}>{counter}</h1>
       <button onClick={onClickF}>Click me</button>
       {/* <Button text={"Continue"} /> */}
+      <div>
+        <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
+        {showing ? <Hello /> : null}
+      </div>
     </div>
   );
 }
