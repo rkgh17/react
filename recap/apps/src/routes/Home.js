@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import MovieDtl from "../components/MovieDtl";
 
-function Movie() {
+function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
 
@@ -25,16 +26,14 @@ function Movie() {
       ) : (
         <div>
           {movies.map((movie) => (
-            <div key={movie.id}>
-              <img src={movie.medium_cover_image}></img>
-              <h2>{movie.title}</h2>
-              <p>{movie.summary}</p>
-              <ul>
-                {movie.genres.map((g) => (
-                  <li key={g}>{g}</li>
-                ))}
-              </ul>
-            </div>
+            <MovieDtl
+              key={movie.id}
+              id={movie.id}
+              coverImg={movie.medium_cover_image}
+              title={movie.title}
+              summary={movie.summary}
+              genres={movie.genres}
+            />
           ))}
         </div>
       )}
@@ -42,4 +41,4 @@ function Movie() {
   );
 }
 
-export default Movie;
+export default Home;
