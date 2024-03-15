@@ -8,8 +8,11 @@ function MovieApp() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Routes>
-        <Route path="/movie/:param" element={<Detail />}></Route>
-        <Route path="/" element={<Home />}></Route>
+        <Route
+          path={process.env.PUBLIC_URL + "/movie/:param"}
+          element={<Detail />}
+        ></Route>
+        <Route path={process.env.PUBLIC_URL + "/"} element={<Home />}></Route>
       </Routes>
     </Router>
   );
