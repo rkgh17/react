@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+// https://brilliant-froyo-4c6888.netlify.app/
 
 function Detail() {
   const [loading, setLoading] = useState(true);
